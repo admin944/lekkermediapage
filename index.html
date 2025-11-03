@@ -3,105 +3,239 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Fractional Head of Product — Payments, Checkout, Workforce Optimisation</title>
-  <meta name="description" content="Fractional Head of Product specialising in Payments & Checkout and Workforce Scheduling/Labour Optimisation. AI-ready governance and delivery." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>Fractional Head of Product — Payments, Checkout & Workforce Optimisation</title>
+  <meta name="description" content="I help leadership teams reduce payment friction, lift checkout conversion, and optimise labour scheduling. Time-boxed, outcomes-first fractional product leadership." />
+  <meta name="theme-color" content="#0b0c10" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Fractional Head of Product — Payments & Checkout" />
+  <meta property="og:description" content="Outcomes-focused leadership for payments, checkout and workforce optimisation." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.lekker-media.com/" />
+  <meta property="og:image" content="https://www.lekker-media.com/og-image.jpg" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Instrument+Sans:wght@500;700&display=swap" rel="stylesheet">
+  <!-- Favicon (add your files to the root) -->
+  <link rel="icon" href="/favicon.ico">
   <style>
-    :root { --bg:#0b0c10; --fg:#e8f0ff; --muted:#aab7cf; --accent:#64d2ff; --card:#12141a; }
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.5}
-    .wrap{max-width:980px;margin:0 auto;padding:28px}
-    header{padding:24px 0 8px;border-bottom:1px solid #1d2230}
-    header .id{display:flex;gap:12px;align-items:center}
-    .pill{border:1px solid #263049;border-radius:999px;padding:4px 10px;color:var(--muted);font-size:12px}
-    h1{font-size:clamp(28px,5vw,44px);line-height:1.1;margin:18px 0}
-    .lead{font-size:clamp(16px,2.6vw,20px);color:var(--muted)}
-    .cta{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0 8px}
-    .btn{background:var(--accent);color:#001018;border:none;border-radius:10px;padding:12px 18px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block}
-    .btn.ghost{background:transparent;border:1px solid #2b3447;color:var(--fg)}
-    .grid{display:grid;gap:16px}
-    .two{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-    .card{background:var(--card);border:1px solid #1d2230;border-radius:16px;padding:18px}
-    h2{font-size:22px;margin:0 0 10px}
-    ul{padding-left:18px;margin:10px 0}
-    .logo-row{display:flex;flex-wrap:wrap;gap:18px;opacity:.7;margin-top:8px}
-    .small{font-size:14px;color:var(--muted)}
-    footer{border-top:1px solid #1d2230;margin-top:28px;padding-top:18px}
-    a{color:var(--accent)}
-    .kpi{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0}
-    .kpi .card{min-width:180px;text-align:center}
+    /* ========== Design tokens ========== */
+    :root {
+      --bg: #0b0c10;
+      --panel: #0f121a;
+      --text: #e9eef8;
+      --muted: #9aabc6;
+      --stroke: #1b2232;
+      --accent: #64d2ff;
+      --accent-2: #7cffb2;
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --font-ui: Inter, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      --font-display: "Instrument Sans", Inter, system-ui, sans-serif;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #fafbff;
+        --panel: #ffffff;
+        --text: #0d1222;
+        --muted: #5d6b86;
+        --stroke: #e8eef9;
+        --shadow: 0 10px 24px rgba(18,41,76,.08);
+      }
+    }
+
+    /* ========== Base ========== */
+    * { box-sizing: border-box }
+    html, body { height: 100% }
+    body {
+      margin: 0; font-family: var(--font-ui); color: var(--text); background: var(--bg);
+      line-height: 1.6; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+      background-image:
+        radial-gradient(1200px 600px at 75% -10%, rgba(100,210,255,.18), transparent 60%),
+        radial-gradient(1000px 520px at -10% 10%, rgba(124,255,178,.12), transparent 60%);
+      background-attachment: fixed;
+    }
+    a { color: var(--accent); text-decoration: none }
+    a:hover { text-decoration: underline }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 24px; }
+
+    /* ========== Top nav ========== */
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 0 6px; position: sticky; top: 0; backdrop-filter: blur(8px);
+      background: color-mix(in oklab, var(--bg) 92%, transparent); z-index: 20; border-bottom: 1px solid var(--stroke);
+    }
+    .brand { display:flex; align-items:center; gap:10px; font-weight:800; font-family: var(--font-display); letter-spacing: .2px }
+    .brand .dot { width:12px; height:12px; border-radius:50%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 20%, transparent) }
+    .nav .cta { display:flex; gap:10px }
+    .btn {
+      display:inline-block; padding:10px 14px; border-radius: 999px; font-weight:700; letter-spacing:.2px;
+      border:1px solid var(--stroke); background: var(--panel); color: var(--text);
+      box-shadow: var(--shadow); transition: transform .06s ease, box-shadow .2s ease;
+    }
+    .btn:hover { transform: translateY(-1px) }
+    .btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color:#001018; border-color: transparent }
+    .btn.ghost { background: transparent }
+
+    /* ========== Hero ========== */
+    header.hero { display:grid; grid-template-columns: 1.2fr .8fr; gap: 28px; padding: 28px 0 18px }
+    @media (max-width: 900px) { header.hero { grid-template-columns: 1fr } }
+    .chips { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 6px }
+    .chip { font-size:12px; padding:6px 10px; border-radius:999px; color: var(--muted); border:1px dashed var(--stroke) }
+    h1 { font-family: var(--font-display); font-size: clamp(28px, 4.8vw, 56px); line-height:1.1; margin: 10px 0 6px }
+    .lead { font-size: clamp(16px, 2.2vw, 20px); color: var(--muted); margin: 10px 0 16px; max-width: 58ch }
+
+    .hero-card {
+      background: color-mix(in oklab, var(--panel) 92%, transparent);
+      border:1px solid var(--stroke); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow)
+    }
+    .kpis { display:flex; flex-wrap:wrap; gap:12px; margin-top: 8px }
+    .k { flex: 1 1 180px; text-align:center; padding:14px; border:1px solid var(--stroke); border-radius: 14px; background: var(--panel) }
+    .k strong { font-size: 22px }
+    .k span { display:block; font-size:13px; color: var(--muted) }
+
+    /* ========== Optional headshot ========== */
+    figure.headshot {
+      margin: 0; place-self: start; display:flex; justify-content:center; align-items:center;
+      border-radius: 24px; overflow:hidden; border:1px solid var(--stroke); background: var(--panel); min-height: 280px;
+    }
+    figure.headshot img { width:100%; height:100%; object-fit: cover; max-height: 420px }
+    figure.headshot figcaption { display:none } /* purely decorative; omit if no photo */
+
+    /* ========== Sections ========== */
+    section { margin: 24px 0 }
+    .grid { display:grid; gap:16px }
+    .two { grid-template-columns: repeat(2, minmax(0,1fr)) }
+    .three { grid-template-columns: repeat(3, minmax(0,1fr)) }
+    @media (max-width: 900px) { .two, .three { grid-template-columns: 1fr } }
+    .card { background: var(--panel); border:1px solid var(--stroke); border-radius: var(--radius); padding:18px; box-shadow: var(--shadow) }
+    .card h2 { margin: 0 0 8px; font-family: var(--font-display); font-size: 22px }
+    ul.clean { margin: 10px 0; padding-left: 1.1rem }
+    .dotlist li { margin: 6px 0 }
+    .logos { display:flex; flex-wrap:wrap; gap:16px; opacity:.7; align-items:center }
+    .logos img { height:28px; filter: grayscale(100%); opacity:.85 }
+
+    /* ========== Footer ========== */
+    footer { border-top:1px solid var(--stroke); margin-top: 30px; padding: 18px 0; color: var(--muted); font-size: 14px }
+
+    /* ========== Motion respect ========== */
+    @media (prefers-reduced-motion: reduce) {
+      .btn, .btn:hover { transition: none; transform: none }
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <header>
-      <div class="id">
-        <span class="pill">Fractional</span>
-        <span class="pill">Payments & Checkout</span>
-        <span class="pill">Workforce Optimisation</span>
-        <span class="pill">AI Governance</span>
-      </div>
-      <h1>Ship measurable product outcomes without hiring a full-time exec</h1>
-      <p class="lead">I help leadership teams reduce payment friction, increase conversion, and optimise labour scheduling. 20 years solving complex business + tech problems, now available as a flexible, outcomes-based engagement.</p>
+
+    <!-- Top nav -->
+    <nav class="nav" aria-label="Primary">
+      <div class="brand"><span class="dot" aria-hidden="true"></span> Lekker Media</div>
       <div class="cta">
-        <a class="btn" href="https://calendly.com/your-link/intro" target="_blank" rel="noopener">Book a 20-min intro</a>
-        <a class="btn ghost" href="mailto:admin@lekker-media.com">admin@lekker-media.com</a>
-        <a class="btn ghost" href="https://www.linkedin.com/in/gvanwyk/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn ghost" href="mailto:hello@lekker-media.com">hello@lekker-media.com</a>
+        <a class="btn primary" href="https://calendly.com/your-link/intro" target="_blank" rel="noopener">Book intro</a>
       </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+      <div>
+        <div class="chips">
+          <span class="chip">Fractional</span>
+          <span class="chip">Payments & Checkout</span>
+          <span class="chip">Workforce Optimisation</span>
+          <span class="chip">AI Governance</span>
+        </div>
+        <h1>Ship measurable product outcomes—without hiring a full-time exec</h1>
+        <p class="lead">I help leadership teams reduce payment friction, increase conversion, and optimise labour scheduling. 20 years solving complex business + tech problems, now available as a flexible, outcomes-based engagement.</p>
+
+        <div class="hero-card">
+          <div class="kpis">
+            <div class="k"><strong>6–12 weeks</strong><span>Time-boxed engagement</span></div>
+            <div class="k"><strong>Payments, Checkout</strong><span>Orchestration & risk</span></div>
+            <div class="k"><strong>Workforce</strong><span>Scheduling & forecasting</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- OPTIONAL: remove this figure if you don’t want a photo -->
+      <figure class="headshot" aria-hidden="true">
+        <img src="headshot.jpg" alt="" loading="eager" decoding="async">
+        <figcaption>Your Name</figcaption>
+      </figure>
     </header>
 
-    <section class="grid two" aria-labelledby="value">
+    <!-- Value & Outcomes -->
+    <section class="grid two">
       <div class="card">
-        <h2 id="value">What you get (6–12 weeks)</h2>
-        <ul>
+        <h2>What you get (6–12 weeks)</h2>
+        <ul class="clean dotlist">
           <li>Payments & Checkout audit → quick-win roadmap</li>
           <li>Workforce scheduling & labour optimisation blueprint</li>
           <li>AI-ready governance: data, model risk, control gates</li>
-          <li>Delivery leadership: align product, design, and engineering</li>
+          <li>Delivery leadership aligning product, design & engineering</li>
         </ul>
       </div>
       <div class="card">
         <h2>Proof & outcomes</h2>
-        <ul>
+        <ul class="clean dotlist">
           <li>+X% checkout conversion, −Y% chargebacks</li>
-          <li>£Z savings through labour optimisation</li>
+          <li>£Z savings from labour optimisation & forecasting</li>
           <li>Safely deployed AI features with guardrails</li>
         </ul>
-        <div class="small">Numbers above are placeholders—swap in your real results.</div>
+        <p class="muted" style="color:var(--muted);font-size:14px;margin-top:6px">Replace placeholders with your real metrics.</p>
       </div>
     </section>
 
-    <section class="kpi">
-      <div class="card"><strong>15–30%</strong><br><span class="small">Typical checkout uplift</span></div>
-      <div class="card"><strong>6–12 wks</strong><br><span class="small">Time-boxed engagement</span></div>
-      <div class="card"><strong>£££</strong><br><span class="small">Cost vs. full-time hire</span></div>
+    <!-- Social proof / logos (optional) -->
+    <section class="card">
+      <h2>Trusted by</h2>
+      <div class="logos">
+        <!-- Replace with real client logos you have permission to show -->
+        <img src="logo1.svg" alt="Client 1">
+        <img src="logo2.svg" alt="Client 2">
+        <img src="logo3.svg" alt="Client 3">
+      </div>
     </section>
 
+    <!-- Focus & Engagement -->
     <section class="grid two">
       <div class="card">
+        <h2>Focus areas</h2>
+        <ul class="clean dotlist">
+          <li>Payment orchestration, SCA/3DS, risk & fraud</li>
+          <li>Checkout UX, experimentation, analytics</li>
+          <li>Workforce scheduling, demand forecasting, labour mix</li>
+          <li>AI usage policies, model evaluation, change control</li>
+        </ul>
+      </div>
+      <div class="card">
         <h2>Engagement model</h2>
-        <ul>
+        <ul class="clean dotlist">
           <li>Fractional leadership (1–2 days/week)</li>
-          <li>Fixed-scope sprint (price on outcomes)</li>
+          <li>Fixed-scope sprint (priced on outcomes)</li>
           <li>Advisory retainer (monthly)</li>
         </ul>
       </div>
-      <div class="card">
-        <h2>Focus areas</h2>
-        <ul>
-          <li>Payment orchestration, SCA/3DS, risk & fraud</li>
-          <li>Checkout UX, A/B testing, analytics</li>
-          <li>Workforce scheduling, forecasting, labour mix</li>
-          <li>AI usage policies, model evaluation, change control</li>
-        </ul>
+    </section>
+
+    <!-- CTA -->
+    <section class="card">
+      <h2>Next step</h2>
+      <p class="lead" style="margin-top:4px">If you have a checkout drop-off, rising chargebacks, or a labour scheduling headache, let’s talk.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn primary" href="https://calendly.com/your-link/intro" target="_blank" rel="noopener">Book a 20-min intro</a>
+        <a class="btn ghost" href="mailto:hello@lekker-media.com">hello@lekker-media.com</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </section>
 
     <footer>
-      <div class="small">© <span id="y"></span> Your Name — London, UK • <a href="mailto:admin@lekker-media.com">Email</a></div>
-      <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+      © <span id="y"></span> Lekker Media — London, UK
     </footer>
   </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
